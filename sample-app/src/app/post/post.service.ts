@@ -30,14 +30,14 @@ export class PostService {
   }
 
   deletePost(id: number): Observable<Post> {
-    const url = `${this.postsUrl}/${id}`;
+    const url = '${this.postsUrl}/${id}';
     return this.http.delete(url, this.options)
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   updatePost(post: Post): Observable<Post> {
-    const url = `${this.postsUrl}/${post.id}`;
+    const url = '${this.postsUrl}/${post.id}';
     return this.http.put(url, JSON.stringify(post),
       this.options).map((res: Response) => res.json());
   }
